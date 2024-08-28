@@ -3,7 +3,7 @@
 import { ReactNode, useState } from "react";
 
 type NavLabelProps = {
-    children:ReactNode,
+    children?:ReactNode,
     selected?:boolean
 };
 

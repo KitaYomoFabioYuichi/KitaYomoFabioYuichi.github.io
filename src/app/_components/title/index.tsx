@@ -1,8 +1,8 @@
-import Button from "@/components/button"
 import Image from 'next/image'
+import TitleButton from './title-buttons'
 
 export default function Title(){
-    return <section className={`h-screen flex flex-row px-64 justify-between items-center`}>
+    return <section className={`h-screen flex flex-wrap flex-row px-[15%] pt-32 justify-between items-center`}>
         <LogoTitle/>
         <LogoIcon/>
     </section>
@@ -15,10 +15,7 @@ function LogoTitle(){
             <h1 className={`self-center text-6xl`}><b>I'm Fabio Kita</b></h1>
             <h1 className={`self-end text-2xl text-gray-500`}>I'm a <b>Software Engineer</b></h1>
         </div>
-        <div className={`flex flex-row gap-3`}>
-            <Button className={`px-12`}>Download CV</Button>
-            <Button className={`px-12`} type="Secondary">Read About Me</Button>
-        </div>
+        <TitleButton/>
     </div>
 }
 
