@@ -4,10 +4,6 @@ import Title from "./_components/title";
 
 export default function Home() {
   return <div className={`relative`}>
-    <Header/>
-    <main>
-      <Title/>
-      <About/>
-    </main>
+    
   </div>
 }

@@ -11,7 +11,7 @@ export default function About(){
     </section>
 }
 
-type SectionTitleProps = {
+interface SectionTitleProps {
     children?:ReactNode,
     className?:string
 }
