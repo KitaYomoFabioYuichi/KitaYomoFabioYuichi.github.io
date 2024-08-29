@@ -1,5 +1,4 @@
-import { ReactNode, useState } from "react"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/utility"
 
 type ButtonType = 'Primary'|'Secondary'
 
@@ -14,36 +13,22 @@ export default function Button({
     ...props
 }:ButtonProps){
 
-    const [hover, setHover] = useState(false);
-
-    let buttonTypeStyle = "px-6 py-3 font-bold rounded-xl transition-colors ";
-    let buttonTypeStyleHover = "";
+    let buttonTypeStyle;
 
     if (styleType == 'Primary'){
-        buttonTypeStyle += "bg-gray-800 text-white";
-        buttonTypeStyleHover += "bg-gray-600";
+        buttonTypeStyle = "bg-gray-800 text-white lg:hover:bg-gray-600 active:bg-gray-600";
     }else if(styleType == "Secondary"){
-        buttonTypeStyle += "bg-white border-gray-300 border";
-        buttonTypeStyleHover += "bg-gray-200";
+        buttonTypeStyle = "bg-white border-gray-300 border lg:hover:bg-gray-200 active:bg-gray-200";
     }
 
     return <button 
         {...props}
 
-        className={twMerge(
+        className={cn(
+            "px-6 py-3 font-bold rounded-xl transition-colors duration-100 ",
             buttonTypeStyle,
-            hover&&buttonTypeStyleHover,
             className
         )}
-
-        onMouseEnter={(e)=>{
-            setHover(true);
-            props.onMouseEnter?.(e)
-        }}
-        onMouseLeave={(e)=>{
-            setHover(false);
-            props.onMouseLeave?.(e);
-        }}
     >
         {children}
     </button>

@@ -1,21 +1,32 @@
 "use client"
 
-import { ReactNode, useState } from "react";
+import { cn } from "@/utility"
+import { ReactNode } from "react"
 
-type NavLabelProps = {
-    children?:ReactNode,
-    selected?:boolean
-};
+interface NavLavelProps {
+	children?:ReactNode,
+	selected?:boolean,
+	onClick?:(e: React.MouseEvent<HTMLLIElement>)=>void
+}
 
-export default function NavLabel({children, selected = false}:NavLabelProps){
-    const [hover, setHover] = useState(false);
+export default function NavLavel({
+	children,
+	selected = false,
+	onClick
+}:NavLavelProps){
+	return <li 
+		className={cn(
+			"relative cursor-pointer select-none",
+			"flex flex-row justify-center items-center",
+			selected?"font-bold":"text-gray-500",
 
-    return <nav
-        className="relative cursor-pointer" 
-        onMouseEnter={()=>setHover(true)}
-        onMouseLeave={()=>setHover(false)}
-    >
-        <div className={`text-base ${!selected?"text-gray-500":"font-semibold"}`}>{children}</div>
-        <div className={`absolute inset-0 border-b-2 border-gray-400 transition-transform ${hover?"scale-x-100":"scale-x-0"}`}/>
-    </nav>
+			//Underline
+			"after:absolute after:bg-black after:bottom-0 after:left-0 after:right-0",
+			"after:border-b-2 after:border-gray-300",
+			"after:transition-transform after:scale-0 hover:after:scale-100 active:after:scale-100"
+		)}
+		onClick={onClick}
+	>
+		{children}
+	</li>
 }
