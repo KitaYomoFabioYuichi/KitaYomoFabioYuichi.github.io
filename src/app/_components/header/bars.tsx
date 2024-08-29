@@ -22,46 +22,42 @@ const Bars = ({
         <g id="Bars">
             <motion.rect
                 initial={{
-                    y:0
+                    y:0,
+                    originX:"50px",
+                    originY:"25px"
                 }}
                 animate={{
                     rotate:active?45:0,
-                    y:active?25:0
+                    y:active?25:0,
                 }}
-                id="Bar1"
-                x={15}
-                y={20}
-                width={70}
-                height={10}
-                rx={5}
-                fill="#030712"
-            />
-            <motion.rect
-                animate={{
-                    scale:active?0:1
-                }}
-                id="Bar2"
-                x={15}
-                y={45}
-                width={70}
-                height={10}
-                rx={5}
+                id="Bar1" 
+                x={15} y={20} width={70} height={10} rx={5}
                 fill="#030712"
             />
             <motion.rect
                 initial={{
-                    y:0
+                    originX:"50px",
+                    originY:"50px"
+                }}
+                animate={{
+                    scaleX:active?0:1
+                }}
+                id="Bar2"
+                x={15} y={45} width={70} height={10} rx={5}
+                fill="#030712"
+            />
+            <motion.rect
+                initial={{
+                    y:0,
+                    originX:"50px",
+                    originY:"75px"
                 }}
                 animate={{
                     rotate:active?-45:0,
                     y:active?-25:0
                 }}
                 id="Bar3"
-                x={15}
-                y={70}
-                width={70}
-                height={10}
-                rx={5}
+                x={15} y={70} width={70} height={10} rx={5}
                 fill="#030712"
             />
         </g>

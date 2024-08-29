@@ -1,29 +1,24 @@
-import Image from 'next/image'
-import TitleButton from './title-buttons'
+import ButtonPanel from './button-panel'
+import TitleImage from './title-image'
 
 export default function Title(){
-    return <section className={`h-screen flex flex-wrap flex-row px-[15%] pt-32 justify-between items-center`}>
-        <LogoTitle/>
-        <LogoIcon/>
+    return <section className={`min-h-screen flex flex-col justify-center items-center lg:items-stretch`}>
+        <div className='flex justify-around items-center'>
+            <div className='flex flex-col gap-8 justify-center'>
+                <TitleText/>
+                <ButtonPanel/>
+            </div>
+            <TitleImage/>
+        </div>
     </section>
 }
 
-function LogoTitle(){
-    return <div className="flex flex-col items-start gap-10">
-        <div className={`flex flex-col justify-center gap-3`}>
-            <h1 className={`self-start text-2xl text-gray-500`}>Hello,</h1>
-            <h1 className={`self-center text-6xl`}><b>I'm Fabio Kita</b></h1>
-            <h1 className={`self-end text-2xl text-gray-500`}>I'm a <b>Software Engineer</b></h1>
+function TitleText(){
+    return <div className='flex justify-center items-center'>
+        <div className='flex flex-col justify-center'>
+            <h1 className='text-2xl text-gray-500'>Hello, </h1>
+            <h1 className='text-5xl sm:text-6xl font-bold'>I'm Fabio Kita</h1>
+            <h1 className='text-2xl text-right text-gray-500'>I'm a <b>Software Engineer</b></h1>
         </div>
-        <TitleButton/>
     </div>
-}
-
-function LogoIcon(){
-    return <Image
-        src={"/logo-icon.png"}
-        width={320}
-        height={370}
-        alt="LogoIcon.png"
-    />
 }
