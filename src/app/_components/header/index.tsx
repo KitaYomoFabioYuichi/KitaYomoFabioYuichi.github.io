@@ -8,7 +8,7 @@ import NavLavel from "./nav-label";
 export default function Header(){
     const [active, setActive] = useState(false);
 
-    return <header className={"fixed top-0 w-full"}>
+    return <header className={"fixed top-0 w-full z-30"}>
         <div className={cn(
             "bg-white border-b border-gray-200",
             "h-20",

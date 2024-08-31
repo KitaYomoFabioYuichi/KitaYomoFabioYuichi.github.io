@@ -1,7 +1,7 @@
 "use client"
 
 import { SVGProps } from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 interface BarsProps extends SVGProps<SVGSVGElement>{
     active?:boolean
@@ -20,21 +20,21 @@ const Bars = ({
         {...props}
     >
         <g id="Bars">
-            <motion.rect
+        <m.rect
                 initial={{
                     y:0,
                     originX:"50px",
                     originY:"25px"
                 }}
                 animate={{
-                    rotate:active?45:0,
+                    rotate:active?45*3:0,
                     y:active?25:0,
                 }}
                 id="Bar1" 
                 x={15} y={20} width={70} height={10} rx={5}
                 fill="#030712"
             />
-            <motion.rect
+            <m.rect
                 initial={{
                     originX:"50px",
                     originY:"50px"
@@ -46,14 +46,14 @@ const Bars = ({
                 x={15} y={45} width={70} height={10} rx={5}
                 fill="#030712"
             />
-            <motion.rect
+            <m.rect
                 initial={{
                     y:0,
                     originX:"50px",
                     originY:"75px"
                 }}
                 animate={{
-                    rotate:active?-45:0,
+                    rotate:active?45*5:0,
                     y:active?-25:0
                 }}
                 id="Bar3"
