@@ -21,7 +21,7 @@ function AboutContent({
 }:HTMLAttributes<HTMLDivElement>){
     return <EnterDiv 
         from={{x:-100, y:0}}
-        delay={0.25}
+        delay={0.5}
         className={cn(
             "text-justify flex flex-col gap-4",
             className
@@ -44,7 +44,7 @@ function AboutImage({
 }:HTMLAttributes<HTMLDivElement>){
     return <EnterDiv 
         from={{x:100, y:0}}
-        delay={0.5}
+        delay={0.25}
         className={cn(
             "flex justify-center items-center",
             className
@@ -52,7 +52,7 @@ function AboutImage({
     >
         <div className={cn(
             "bg-black relative w-[200px] h-[200px] rounded-full overflow-hidden",
-            "md:w-full md:h-full md:rounded-lg"
+            "md:w-full md:h-full md:rounded-xl"
         )}>
             <Image src="/portrait.png" alt="portrait" fill style={{objectFit:"cover"}}/>
         </div>

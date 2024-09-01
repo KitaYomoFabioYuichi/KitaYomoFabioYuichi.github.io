@@ -1,7 +1,5 @@
-"use client"
-
 import { cn } from "@/utility"
-import { HTMLAttributes, ReactNode } from "react"
+import { HTMLAttributes } from "react"
 
 export default function SectionTitle({
     children,

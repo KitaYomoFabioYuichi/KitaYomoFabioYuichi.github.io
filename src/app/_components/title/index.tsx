@@ -3,8 +3,8 @@ import Button from '@/components/button'
 import Image from 'next/image'
 
 const START = 0;
-const IMAGE_TIMING = 0.75;
-const BUTTON_TIMING = 1;
+const IMAGE_TIMING = 0;
+const BUTTON_TIMING = 1.5;
 
 export default function Title(){
     return <section className={`min-h-screen flex flex-col justify-center items-center lg:items-stretch`}>

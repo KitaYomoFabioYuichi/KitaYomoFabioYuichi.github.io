@@ -3,6 +3,7 @@ import About from "./_components/about";
 import Header from "./_components/header";
 import Title from "./_components/title";
 import { cn } from "@/utility";
+import Skills from "./_components/skills";
 
 export default function Home() {
 	return <>
@@ -14,6 +15,7 @@ export default function Home() {
 		)}>
 			<Title/>
 			<About/>
+			<Skills/>
 			<div/>
 		</main>
 	</>

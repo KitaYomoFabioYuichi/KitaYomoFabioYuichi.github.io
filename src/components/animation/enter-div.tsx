@@ -24,7 +24,7 @@ export default function EnterDiv({
 
     const component = useRef(null);
     const inView = useInView(component, {
-        margin: '-15% 0px'
+        margin: '-5% 0px'
     });
 
     useEffect(()=>{
