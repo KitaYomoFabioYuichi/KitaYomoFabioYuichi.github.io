@@ -14,9 +14,11 @@ export default function Home() {
 			"overflow-x-hidden"
 		)}>
 			<Title/>
-			<About/>
-			<Skills/>
-			<div/>
+			<div className="flex flex-col gap-60">
+				<About/>
+				<Skills/>
+				<div/>
+			</div>
 		</main>
 	</>
 }

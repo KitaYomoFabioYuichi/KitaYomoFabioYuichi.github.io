@@ -1,10 +1,13 @@
+import Image from 'next/image'
+
 import EnterDiv from '@/components/animation/enter-div'
 import Button from '@/components/button'
-import Image from 'next/image'
+
+import titleImage from "./title-image.png"
 
 const START = 0;
 const IMAGE_TIMING = 0;
-const BUTTON_TIMING = 1.5;
+const BUTTON_TIMING = 1;
 
 export default function Title(){
     return <section className={`min-h-screen flex flex-col justify-center items-center lg:items-stretch`}>
@@ -47,6 +50,6 @@ function ButtonPanel(){
 
 function TitleImage(){
     return <EnterDiv  delay={IMAGE_TIMING} from={{x:100, y:0}} className="hidden lg:block">
-        <Image alt="Image" src={"/title-image.png"} width={320} height={320}/>
+        <Image alt="Image" src={titleImage} width={320}/>
     </EnterDiv>
 }

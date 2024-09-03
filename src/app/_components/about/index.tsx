@@ -6,9 +6,7 @@ import { HTMLAttributes } from "react";
 
 export default function About(){
     return <section className="flex flex-col gap-8 md:gap-0">
-        <EnterDiv from={{x:-100, y:0}}>
-            <SectionTitle>About Me</SectionTitle>
-        </EnterDiv>
+        <SectionTitle>About Me</SectionTitle>
         <div className="flex flex-col-reverse gap-8 md:flex-row md:gap-16">
             <AboutContent className="md:pt-10 flex-[1.5] lg:flex-[2]"/>
             <AboutImage className="flex-1"/>
@@ -39,6 +37,8 @@ function AboutContent({
     </EnterDiv>
 }
 
+import portrait from "./portrait.png"
+
 function AboutImage({
     className
 }:HTMLAttributes<HTMLDivElement>){
@@ -54,7 +54,13 @@ function AboutImage({
             "bg-black relative w-[200px] h-[200px] rounded-full overflow-hidden",
             "md:w-full md:h-full md:rounded-xl"
         )}>
-            <Image src="/portrait.png" alt="portrait" fill style={{objectFit:"cover"}}/>
+            <Image 
+                src={portrait} 
+                alt="portrait" 
+                fill 
+                sizes="(max-width: 768px) 200px, 50vw" 
+                style={{objectFit:"cover"}}
+            />
         </div>
     </EnterDiv>
 }

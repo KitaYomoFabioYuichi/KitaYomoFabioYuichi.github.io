@@ -1,15 +1,17 @@
 import { cn } from "@/utility"
 import { HTMLAttributes } from "react"
+import EnterDiv from "../animation/enter-div"
 
 export default function SectionTitle({
     children,
     className
 }:HTMLAttributes<HTMLDivElement>){
-    return <div
+    return <EnterDiv
         className={cn(
             "flex flex-row justify-start items-center",
             className
         )}
+        from={{x:-100, y:0}}
     >
         <h1
             className={cn(
@@ -20,5 +22,5 @@ export default function SectionTitle({
         >
             {children}
         </h1>
-    </div>
+    </EnterDiv>
 }

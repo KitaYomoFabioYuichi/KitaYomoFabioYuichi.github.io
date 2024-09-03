@@ -28,13 +28,18 @@ export default function Button({
         {...props}
 
         whileHover={{
-            y: -3,
-            boxShadow: "0px 3px 0px #d1d5db"
+            y: -5,
+            boxShadow: "0px 5px 0px #d1d5db"
         }}
 
         whileTap={{
             y:0,
             boxShadow: "0px 0px 0px #d1d5db"
+        }}
+
+        animate={{
+            y:-3,
+            boxShadow: "0px 3px 0px #d1d5db"
         }}
 
         transition={{

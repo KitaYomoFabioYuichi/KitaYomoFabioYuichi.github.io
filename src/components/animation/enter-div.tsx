@@ -18,7 +18,8 @@ export default function EnterDiv({
     children,
     from = {x:0, y:0},
     delay = 0,
-    duration = 0.5
+    duration = 0.5,
+    ...props
 }:EnterDivProps){
     const [entered, setEntered] = useState(false);
 
@@ -32,6 +33,8 @@ export default function EnterDiv({
     },[inView])
 
     return <m.div
+        {...props}
+
         initial={{
             x:from.x,
             y:from.y,
@@ -50,11 +53,8 @@ export default function EnterDiv({
             delay
         }}
 
-        className={cn(
-            "",
-            className
-        )}
-
+        className={className}
+        
         ref={component}
     >
         {children}

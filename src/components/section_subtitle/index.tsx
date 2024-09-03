@@ -1,14 +1,13 @@
-import { cn } from "@/utility";
 import { HTMLAttributes } from "react";
+import EnterDiv from "../animation/enter-div";
 
 export default function SectionSubTitle({
     children,
     className
-}:HTMLAttributes<HTMLHeadingElement>){
-    return <h2 className={cn(
-        "text-gray-500 text-base",
-        className
-    )}>
-        {children}
-    </h2>
+}:HTMLAttributes<HTMLDivElement>){
+    return <EnterDiv className={className} from={{x:-100, y:0}}>
+        <h2 className="text-gray-500 text-lg">
+            {children}
+        </h2>
+    </EnterDiv>
 }

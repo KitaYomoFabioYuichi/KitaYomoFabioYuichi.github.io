@@ -1,6 +1,33 @@
 import SectionSubTitle from "@/components/section_subtitle";
 import SectionTitle from "@/components/section_title";
-import Image from "next/image";
+
+//Icons
+import CIcon from "./skills_icon/languages/C.png"
+import CppIcon from "./skills_icon/languages/Cpp.png"
+import CSIcon from "./skills_icon/languages/CS.png"
+import JavaIcon from "./skills_icon/languages/Java.png"
+import PythonIcon from "./skills_icon/languages/Python.png"
+import JsIcon from "./skills_icon/languages/Js.png"
+import TsIcon from "./skills_icon/languages/Ts.png"
+import htmlIcon from "./skills_icon/languages/html.png"
+import cssIcon from "./skills_icon/languages/css.png"
+
+import ExpressjsIcon from "./skills_icon/libraries/Expressjs.png"
+import NextjsIcon from "./skills_icon/libraries/Nextjs.png"
+import NetIcon from "./skills_icon/libraries/Net.png"
+import SpringBootIcon from "./skills_icon/libraries/SpringBoot.png"
+import ReactIcon from "./skills_icon/libraries/React.png"
+import ReactNativeIcon from "./skills_icon/libraries/ReactNative.png"
+
+import FigmaIcon from "./skills_icon/other/Figma.png"
+import GitIcon from "./skills_icon/other/Git.png"
+import GithubIcon from "./skills_icon/other/Github.png"
+import GodotIcon from "./skills_icon/other/Godot.png"
+import MySqlIcon from "./skills_icon/other/MySql.png"
+import PostgreSqlIcon from "./skills_icon/other/PostgreSql.png"
+import UnityIcon from "./skills_icon/other/Unity.png"
+import { StaticImageData } from "next/image";
+import SkillEntry from "./skill-entry";
 
 export default function Skills(){
     return <section className="flex flex-col gap-8">
@@ -8,21 +35,18 @@ export default function Skills(){
         <div className="flex flex-col gap-16">
             <SkillSection 
                 title="Programming Languages / Other Languages"
-                srcPrefix="/skills_icon/languages/"
-                srcList={["C", "C++", "CS", "Java", "Python", "Js", "Ts", "html", "css"]}
+                srcList={[CIcon, CppIcon, CSIcon, JavaIcon, PythonIcon, JsIcon, TsIcon, htmlIcon, cssIcon,]}
                 nameList={["C", "C++", "C#", "Java", "Python", "JavaScript", "TypeSpript", "HTML", "CSS"]}
             />
             <SkillSection 
                 title="Frameworks / Libraries"
-                srcPrefix="/skills_icon/libraries/"
-                srcList={["Expressjs", "Nextjs", "Net", "SpringBoot", "React", "React Native"]}
+                srcList={[ExpressjsIcon, NextjsIcon, NetIcon, SpringBootIcon, ReactIcon, ReactNativeIcon]}
                 nameList={["Express.js", "Next.js", ".Net", "SpringBoot", "React", "React Native"]}
             />
             <SkillSection 
                 title="Other Tools"
-                srcPrefix="/skills_icon/other/"
-                srcList={["Figma", "Git", "Github", "Godot", "MySql", "PostgreSql", "Unity"]}
-                nameList={["Figma", "Git", "Github", "Godot", "MySQL", "PostgreSQL", "Unity"]}
+                srcList={[FigmaIcon, GitIcon, GithubIcon, MySqlIcon, PostgreSqlIcon, GodotIcon, UnityIcon]}
+                nameList={["Figma", "Git", "Github", "MySQL", "PostgreSQL", "Godot", "Unity"]}
             />
         </div>
     </section>
@@ -30,56 +54,33 @@ export default function Skills(){
 
 interface SkillSectionProps{
     title:string,
-    srcPrefix?:string,
-    srcSuffix?:string,
-    srcList:string[],
+    srcList:StaticImageData[],
     nameList:string[]
 }
 
 function SkillSection({
     title,
-    srcPrefix = "",
-    srcSuffix = ".png",
     srcList = [],
     nameList = []
 }:SkillSectionProps){
     function renderSkillEntries(){
         return srcList.map((v, i)=>{
-            let src = srcPrefix + v + srcSuffix;
+            let imageData = v;
             let name = nameList[i];
 
             return <SkillEntry
-                key={src}
+                key={imageData.src}
                 name={name}
-                src={src}
+                src={imageData}
+                index={i}
             />
         })
     }
-
 
     return <div className="flex flex-col gap-4">
         <SectionSubTitle>{title}</SectionSubTitle>
         <div className="flex flex-row flex-wrap gap-4">
             {renderSkillEntries()}
         </div>
-    </div>
-}
-
-interface SkillEntryProps{
-    src:string,
-    name:string,
-    size?:number
-}
-
-function SkillEntry({
-    src,
-    name
-}:SkillEntryProps){
-    return <div className="relative w-20 h-20 inline-block">
-        <Image
-            src={src}
-            alt={name}
-            fill
-        />
     </div>
 }
