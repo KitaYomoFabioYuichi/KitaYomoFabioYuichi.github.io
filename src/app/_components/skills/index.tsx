@@ -30,7 +30,7 @@ import { StaticImageData } from "next/image";
 import SkillEntry from "./skill-entry";
 
 export default function Skills(){
-    return <section className="flex flex-col gap-8">
+    return <section id="skills" className="flex flex-col gap-8 pt-40 lg:pt-32">
         <SectionTitle>Skills</SectionTitle>
         <div className="flex flex-col gap-16">
             <SkillSection 

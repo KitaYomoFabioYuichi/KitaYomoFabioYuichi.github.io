@@ -7,7 +7,7 @@ import WhatsappIcon from "./whatsapp-icon";
 import ContactHover from "./contact-hover";
 
 export default function Contact(){
-    return <footer className={cn(
+    return <footer id="contact" className={cn(
         "flex flex-col gap-10",
         "mt-60 w-full bg-gray-800",
         "px-[5vw] md:px-[7.5vw] lg:px-[10vw] xl:px-[15vw]",

@@ -6,7 +6,7 @@ import { HTMLMotionProps, m } from "framer-motion";
 type ButtonType = 'Primary'|'Secondary'
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
-   styleType?:ButtonType
+    styleType?:ButtonType
 }
 
 export default function Button({

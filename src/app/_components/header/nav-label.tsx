@@ -1,36 +1,38 @@
-"use client"
-
 import { cn } from "@/utility"
+import Link from "next/link"
 import { ReactNode } from "react"
 
 interface NavLavelProps {
 	children?:ReactNode,
 	selected?:boolean,
-	onClick?:(e: React.MouseEvent<HTMLLIElement>)=>void
+	href?:string
 }
 
 export default function NavLavel({
 	children,
 	selected = false,
-	onClick
+	href = ""
 }:NavLavelProps){
-	return <li
+	
 
-		className={cn(
-			"relative cursor-pointer select-none",
-			"flex flex-row justify-center items-center",
-			"transition-transform duration-100 ",
-			!selected&&"hover:translate-y-[-3px] active:translate-y-[-3px]",
-			selected?"font-semibold translate-y-[-3px]":"text-gray-500",
-			
-			//Underline
-			"after:absolute after:bottom-0 after:left-0 after:right-0",
-			"after:h-[1px] after:bg-gray-300",
-			"after:transition-transform after:scale-x-0 hover:after:scale-x-100 active:after:scale-x-100",
-			selected?"after:scale-x-100":""
-		)}
-		onClick={onClick}
-	>
-		{children}
-	</li>
+	return <Link href={href} scroll>
+		<li
+			className={cn(
+				"relative cursor-pointer select-none",
+				"flex flex-row justify-center items-center",
+				"transition-transform duration-100 ",
+				"capitalize",
+				!selected&&"hover:translate-y-[-3px] active:translate-y-[-3px]",
+				selected?"font-semibold translate-y-[-3px]":"text-gray-500",
+				
+				//Underline
+				"after:absolute after:bottom-0 after:left-0 after:right-0",
+				"after:h-[1px] after:bg-gray-300",
+				"after:transition-transform",
+				selected?"after:scale-x-100":"after:scale-x-0"
+			)}
+		>
+			{children}
+		</li>
+	</Link>
 }

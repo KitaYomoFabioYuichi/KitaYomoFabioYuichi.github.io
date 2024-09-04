@@ -5,7 +5,7 @@ import Image from "next/image";
 import { HTMLAttributes } from "react";
 
 export default function About(){
-    return <section className="flex flex-col gap-8 md:gap-0">
+    return <section id="about" className="flex flex-col gap-8 md:gap-0 pt-40 lg:pt-32">
         <SectionTitle>About Me</SectionTitle>
         <div className="flex flex-col-reverse gap-8 md:flex-row md:gap-16">
             <AboutContent className="md:pt-10 flex-[1.5] lg:flex-[2]"/>
@@ -38,6 +38,7 @@ function AboutContent({
 }
 
 import portrait from "./portrait.png"
+import ScrollHeaderPadding from "../scroll-header-padding";
 
 function AboutImage({
     className
@@ -60,6 +61,7 @@ function AboutImage({
                 fill 
                 sizes="(max-width: 768px) 200px, 50vw" 
                 style={{objectFit:"cover"}}
+                priority
             />
         </div>
     </EnterDiv>

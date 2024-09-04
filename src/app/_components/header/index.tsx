@@ -1,12 +1,63 @@
 "use client"
 
 import { cn } from "@/utility";
-import { useState } from "react";
-import Bars from "./bars";
 import NavLavel from "./nav-label";
+import Link from "next/link";
+import HeaderNavMenu from "./header-nav-menu";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+const sectionIds = ["home", "about", "skills", "works", "contact"];
 
 export default function Header(){
-    const [active, setActive] = useState(false);
+    const [currentSectionId, setCurrentSectionId] = useState(sectionIds[0]);
+
+    const handleScroll = useCallback(()=>{
+        const getCurrentSectionId = ()=>{
+            const PADDING = 75;
+
+            const getSectionPosition = (section:HTMLElement)=>{
+                var rect = section.getBoundingClientRect();
+                return { x: rect.left + scrollLeft, y: rect.top + scrollTop};
+            }
+    
+            const isOnBottom = ()=>{
+                const documentHeight = Math.round(document.documentElement.getBoundingClientRect().height);
+                const currentScrollBottom = Math.round(documentElement.scrollTop + window.innerHeight);
+                return currentScrollBottom >= documentHeight-PADDING;
+            }
+    
+            const documentElement = document.documentElement;
+            const scrollLeft = documentElement.scrollLeft;
+            const scrollTop = documentElement.scrollTop;
+    
+            let currentSectionId = sectionIds[sectionIds.length-1];
+    
+            if(isOnBottom()){
+                return "contact";
+            }
+    
+            let sections = sectionIds.map(sectionId=>document?.getElementById(sectionId));
+            for(let section of sections){
+                section = section as HTMLElement;
+    
+                let sectionPosition = getSectionPosition(section);
+                let currentScroll = Math.round(scrollTop);
+                let sectionY = Math.round(sectionPosition.y-PADDING);
+                
+                if(currentScroll >= sectionY) currentSectionId = section.id;
+            }
+    
+            return currentSectionId;
+        }
+
+        setCurrentSectionId(getCurrentSectionId());
+    },[]);
+
+    useEffect(()=>{
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+        return ()=>window.removeEventListener("scroll", handleScroll);
+    },[]);
 
     return <header className={"fixed top-0 w-full z-30"}>
         <div className={cn(
@@ -15,40 +66,23 @@ export default function Header(){
             "px-4 md:px-12",
             "flex flex-row justify-between items-center",
         )}>
-            <h1 className="text-2xl font-black">
-                Fabio Kita
-            </h1>
-            
-            <nav className="lg:hidden">
-                <button className="h-10" onClick={()=>setActive(a=>!a)}>
-                    <Bars active={active}/>
-                </button>
-                <div className={cn(
-                    "absolute left-0 right-0 border-b border-gray-200 bg-white -z-10",
-                    "transition-all",
-                    "p-4",
-                    "flex flex-row",
-                    active?"top-20":"-top-10"
-                )}>
-                    <ul className="flex-1 flex flex-row flex-wrap gap-6 justify-around items-center">
-                        <NavLavel selected={true}>Home</NavLavel>
-                        <NavLavel>About</NavLavel>
-                        <NavLavel>Skills</NavLavel>
-                        <NavLavel>Works</NavLavel>
-                        <NavLavel>Contact</NavLavel>
-                    </ul>
-                </div>
-            </nav>
+            <Link href={`#${sectionIds[0]}`}>
+                <h1 className="text-2xl font-black">
+                    Fabio Kita
+                </h1>
+            </Link>
 
-            <nav className="hidden lg:block">
-                <ul className="flex flex-row gap-12">
-                    <NavLavel selected={true}>Home</NavLavel>
-                    <NavLavel>About</NavLavel>
-                    <NavLavel>Skills</NavLavel>
-                    <NavLavel>Works</NavLavel>
-                    <NavLavel>Contact</NavLavel>
-                </ul>
-            </nav>
+            <HeaderNavMenu>
+                {sectionIds.map( 
+                    sectionId=><NavLavel 
+                        key={sectionId} 
+                        href={"#" + sectionId}
+                        selected={sectionId == currentSectionId}
+                    >
+                        {sectionId}
+                    </NavLavel> 
+                )}
+            </HeaderNavMenu>
         </div>
     </header>
 }

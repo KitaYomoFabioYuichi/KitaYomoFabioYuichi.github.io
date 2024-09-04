@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`text-[14px]   md:text-[16px] ${openSans.className} text-gray-950`}>
-      <body>
+    <html lang="en" className={`text-[14px]   md:text-[16px]`}>
+      <body className={`${openSans.className} text-gray-950`}>
         <FramerMotionContext>
           {children}
         </FramerMotionContext>
