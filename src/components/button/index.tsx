@@ -28,8 +28,8 @@ export default function Button({
         {...props}
 
         whileHover={{
-            y: -5,
-            boxShadow: "0px 5px 0px #d1d5db"
+            y: -3,
+            boxShadow: "0px 3px 0px #d1d5db"
         }}
 
         whileTap={{
@@ -37,17 +37,12 @@ export default function Button({
             boxShadow: "0px 0px 0px #d1d5db"
         }}
 
-        animate={{
-            y:-3,
-            boxShadow: "0px 3px 0px #d1d5db"
-        }}
-
         transition={{
             duration:0.1
         }}
 
         className={cn(
-            "px-6 py-3 font-bold rounded-xl",
+            "px-6 py-3 font-bold rounded-xl transition-colors",
             buttonTypeStyle,
             className
         )}

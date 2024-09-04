@@ -28,7 +28,7 @@ export default function SkillEntry({
         onMouseLeave={()=>setHover(false)}
     >
         <m.div 
-            className="relative w-20 h-20"
+            className="relative w-20 h-20 overflow-hidden"
             animate={{
                 y:hover?-10:0,
             }}
@@ -49,7 +49,7 @@ export default function SkillEntry({
                 opacity:0
             }}
             animate={{
-                opacity:hover?1:0
+                opacity:hover?0.75:0
             }}
         >
             {name}
