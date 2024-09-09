@@ -12,11 +12,11 @@ export default function Home() {
 		<Header/>
 		<main className={cn(
 			"px-[5vw] md:px-[7.5vw] lg:px-[10vw] xl:px-[15vw]",
-			"flex flex-col gap-20",
-			"overflow-x-hidden"
+			"flex flex-col gap-0",
+			"overflow-hidden"
 		)}>
 			<Title/>
-			<div className="flex flex-col gap-20">
+			<div className="flex flex-col gap-32">
 				<About/>
 				<Skills/>
 				<Works/>

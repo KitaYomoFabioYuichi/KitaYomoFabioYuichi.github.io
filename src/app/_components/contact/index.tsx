@@ -1,10 +1,11 @@
 import EnterDiv from "@/components/animation/enter-div";
 import SectionTitle from "@/components/section_title";
 import { cn } from "@/utility";
-import GithubIcon from "./github-icon";
-import LinkedinIcon from "./linkeding-icon";
-import WhatsappIcon from "./whatsapp-icon";
+import GithubIcon from "./icons/github-icon";
+import LinkedinIcon from "./icons/linkeding-icon";
+import WhatsappIcon from "./icons/whatsapp-icon";
 import ContactHover from "./contact-hover";
+import EmailContact from "./email-contact";
 
 export default function Contact(){
     return <footer id="contact" className={cn(
@@ -15,13 +16,11 @@ export default function Contact(){
     )}>
         <SectionTitle className="text-white">Contact Me</SectionTitle>
         <EnterDiv from={{x:-100, y:0}} className="flex justify-start items-center gap-8">
-            <h2 className="text-gray-300 text-lg">Gmail: </h2>
-            <ContactHover>
-                <p className="text-white text-xl">kitayomofabioyuichi@gmail.com</p>
-            </ContactHover>
+            <h2 className="text-gray-300 text-base">Gmail: </h2>
+            <EmailContact/>
         </EnterDiv>
         <EnterDiv from={{x:-100, y:0}} className="flex justify-start items-center gap-8">
-            <h2 className="text-gray-300 text-lg">Socials: </h2>
+            <h2 className="text-gray-300 text-base">Socials: </h2>
             <div className="flex gap-8">
                 <ContactHover>
                     <GithubIcon/>

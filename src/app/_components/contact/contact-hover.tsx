@@ -1,19 +1,27 @@
 "use client"
 
-import { m } from "framer-motion"
+import { cn } from "@/utility"
+import { HTMLMotionProps, m } from "framer-motion"
 import { ReactNode } from "react"
 
-interface ContactHoverProps{
-    children?:ReactNode
+interface ContactHoverProps extends HTMLMotionProps<"div">{
+    children?:ReactNode,
+    scale?:number
 }
 
 export default function ContactHover({
-    children
+    children,
+    scale = 1.25,
+    ...props
 }:ContactHoverProps){
     return <m.div
-        className="select-none"
+        {...props}
+        className={cn(
+            "select-none",
+            props.className
+        )}
         whileHover={{
-            scale:1.1
+            scale
         }}
     >
         {children}

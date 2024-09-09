@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`text-[14px]   md:text-[16px]`}>
-      <body className={`${openSans.className} text-gray-950`}>
+      <body className={`${openSans.className} text-gray-950 overflow-x-hidden w-full h-full`}>
         <FramerMotionContext>
           {children}
         </FramerMotionContext>
