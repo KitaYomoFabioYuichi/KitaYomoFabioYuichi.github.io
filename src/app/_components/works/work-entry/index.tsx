@@ -21,8 +21,8 @@ export default function WorkEntry({
 
     return <EnterDiv
         from={{
-            x:0,
-            y:100
+            x:-100,
+            y:0
         }}
         delay={0.1}
         className={cn(

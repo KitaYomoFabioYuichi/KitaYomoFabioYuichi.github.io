@@ -20,7 +20,7 @@ export default function EmailContact(){
         timeout.current = setTimeout(()=>setShowPopup(false), 2000);
     }
 
-    return <div className="relative">
+    return <div className="flex flex-row flex-wrap justify-start items-start gap-y-2 gap-x-4">
         <ContactHover scale={1.1} onClick={handleOnClick}>
             <p className="text-white text-base sm:text-lg lg:text-xl cursor-pointer">{GMAIL}</p>
         </ContactHover>
@@ -33,10 +33,7 @@ export default function EmailContact(){
                 duration:showPopup?0.1:0.5
             }}
             className={cn(
-                "absolute select-none",
-                "translate-x-[-50%] translate-y-[-50%]",
-                "bottom-[-45px] left-1/2 top-auto right-auto",
-                "sm:top-1/2 sm:right-[-150px] sm:bottom-auto sm:left-auto",
+                "select-none",
                 "bg-gray-200  opacity-75",
                 "p-1 px-2 rounded-xl",
                 "font-bold"
