@@ -3,7 +3,6 @@ import Image from 'next/image'
 import EnterDiv from '@/components/animation/enter-div'
 import Button from '@/components/button'
 
-import titleImage from "./title-image.png"
 import Link from 'next/link';
 
 const START = 0;
@@ -17,7 +16,9 @@ export default function Title(){
                 <TitleText/>
                 <ButtonPanel/>
             </div>
-            <TitleImage/>
+            <EnterDiv  delay={IMAGE_TIMING} from={{x:100, y:0}} className="hidden lg:block">
+                <TitleImage/>
+            </EnterDiv>
         </div>
     </section>
 }
@@ -51,7 +52,10 @@ function ButtonPanel(){
     </EnterDiv>
 }
 
-function TitleImage(){
+import titleImage from "./title-image.png"
+import TitleImage from './title-image';
+
+function TitleImageObs(){
     return <EnterDiv  delay={IMAGE_TIMING} from={{x:100, y:0}} className="hidden lg:block">
         <Image alt="Image" src={titleImage} width={320}/>
     </EnterDiv>
