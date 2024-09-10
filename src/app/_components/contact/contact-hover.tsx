@@ -17,7 +17,6 @@ export default function ContactHover({
     return <m.div
         {...props}
         className={cn(
-            "select-none",
             props.className
         )}
         whileHover={{

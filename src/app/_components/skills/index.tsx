@@ -26,8 +26,39 @@ import GodotIcon from "./skills_icon/other/Godot.png"
 import MySqlIcon from "./skills_icon/other/MySql.png"
 import PostgreSqlIcon from "./skills_icon/other/PostgreSql.png"
 import UnityIcon from "./skills_icon/other/Unity.png"
-import { StaticImageData } from "next/image";
+
 import SkillEntry from "./skill-entry";
+
+const languageList = [
+    { name:"C", src:"/skills_icon/languages/C.png" },
+    { name:"C++", src:"/skills_icon/languages/Cpp.png" },
+    { name:"C#", src:"/skills_icon/languages/CS.png" },
+    { name:"Java", src:"/skills_icon/languages/Java.png" },
+    { name:"Python", src:"/skills_icon/languages/Python.png" },
+    { name:"Java Script", src:"/skills_icon/languages/Js.png" },
+    { name:"Type Script", src:"/skills_icon/languages/Ts.png" },
+    { name:"HTML", src:"/skills_icon/languages/html.png" },
+    { name:"CSS", src:"/skills_icon/languages/css.png" }
+];
+
+const libraryList = [
+    { name:"Express.js", src:"/skills_icon/libraries/Expressjs.png" },
+    { name:"Next.js", src:"/skills_icon/libraries/Nextjs.png" },
+    { name:".Net", src:"/skills_icon/libraries/Net.png" },
+    { name:"Spring Boot", src:"/skills_icon/libraries/SpringBoot.png" },
+    { name:"React", src:"/skills_icon/libraries/React.png" },
+    { name:"React Native", src:"/skills_icon/libraries/ReactNative.png" },
+];
+
+const otherList = [
+    { name:"Figma", src:"/skills_icon/other/Figma.png" },
+    { name:"Git", src:"/skills_icon/other/Git.png" },
+    { name:"Github", src:"/skills_icon/other/Github.png" },
+    { name:"MySql", src:"/skills_icon/other/MySql.png" },
+    { name:"PostgreSQL", src:"/skills_icon/other/PostgreSql.png" },
+    { name:"Godot", src:"/skills_icon/other/Godot.png" },
+    { name:"Unity", src:"/skills_icon/other/Unity.png" },
+];
 
 export default function Skills(){
     return <section id="skills" className="flex flex-col gap-8 pt-40 lg:pt-32">
@@ -35,45 +66,37 @@ export default function Skills(){
         <div className="flex flex-col gap-16">
             <SkillSection 
                 title="Programming Languages / Other Languages"
-                srcList={[CIcon, CppIcon, CSIcon, JavaIcon, PythonIcon, JsIcon, TsIcon, htmlIcon, cssIcon,]}
-                nameList={["C", "C++", "C#", "Java", "Python", "JavaScript", "TypeSpript", "HTML", "CSS"]}
+                skillData={languageList}
             />
             <SkillSection 
                 title="Frameworks / Libraries"
-                srcList={[ExpressjsIcon, NextjsIcon, NetIcon, SpringBootIcon, ReactIcon, ReactNativeIcon]}
-                nameList={["Express.js", "Next.js", ".Net", "SpringBoot", "React", "React Native"]}
+                skillData={libraryList}
             />
             <SkillSection 
                 title="Other Tools"
-                srcList={[FigmaIcon, GitIcon, GithubIcon, MySqlIcon, PostgreSqlIcon, GodotIcon, UnityIcon]}
-                nameList={["Figma", "Git", "Github", "MySQL", "PostgreSQL", "Godot", "Unity"]}
+                skillData={otherList}
             />
         </div>
     </section>
 }
 
+type SkillData = {
+    name:string,
+    src:string
+}
+
 interface SkillSectionProps{
     title:string,
-    srcList:StaticImageData[],
-    nameList:string[]
+    skillData:SkillData[]
 }
 
 function SkillSection({
     title,
-    srcList = [],
-    nameList = []
+    skillData
 }:SkillSectionProps){
     function renderSkillEntries(){
-        return srcList.map((v, i)=>{
-            let imageData = v;
-            let name = nameList[i];
-
-            return <SkillEntry
-                key={imageData.src}
-                name={name}
-                src={imageData}
-                index={i}
-            />
+        return skillData.map(v=>{
+            return <SkillEntry key={v.name} name={v.name} src={v.src} />
         })
     }
 

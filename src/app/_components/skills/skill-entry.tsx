@@ -7,7 +7,7 @@ import { m } from "framer-motion"
 import { useState } from "react";
 
 interface SkillEntryProps{
-    src:StaticImageData,
+    src:string,
     name:string,
     index?:number
 }
@@ -18,7 +18,6 @@ export default function SkillEntry({
     index = 0
 }:SkillEntryProps){
     const [hover, setHover] = useState(false);
-    
 
     return <EnterDiv
         className="relative flex flex-col justify-center items-center"
@@ -29,28 +28,17 @@ export default function SkillEntry({
     >
         <m.div 
             className="relative w-20 h-20 overflow-hidden"
-            animate={{
-                y:hover?-10:0,
-            }}
+            animate={{ y:hover?-10:0, }}
         >
-            <Image
-                src={src}
-                alt={name}
-                fill
-                sizes="5rem"
-            />
+            <Image src={src} alt={name} fill sizes="5rem" />
         </m.div>
         <m.div 
             className={cn(
                 "absolute bottom-[-10px] select-none",
                 "text-center text-sm text-white bg-gray-800 rounded-lg px-2"
             )}
-            initial={{
-                opacity:0
-            }}
-            animate={{
-                opacity:hover?0.75:0
-            }}
+            initial={{ opacity:0 }}
+            animate={{ opacity:hover?0.75:0 }}
         >
             {name}
         </m.div>

@@ -13,6 +13,10 @@ export default function EmailContact(){
     const [showPopup, setShowPopup] = useState(false);
 
     const handleOnClick = ()=>{
+        if(!navigator) return;
+        if(!navigator.clipboard) return;
+        if(!navigator.clipboard.writeText) return;
+
         navigator.clipboard.writeText(GMAIL);
 
         setShowPopup(true);
@@ -20,7 +24,7 @@ export default function EmailContact(){
         timeout.current = setTimeout(()=>setShowPopup(false), 2000);
     }
 
-    return <div className="flex flex-row flex-wrap justify-start items-start gap-y-2 gap-x-4">
+    return <div className="flex flex-row flex-wrap justify-start items-start gap-y-2 gap-x-8">
         <ContactHover scale={1.1} onClick={handleOnClick}>
             <p className="text-white text-base sm:text-lg lg:text-xl cursor-pointer">{GMAIL}</p>
         </ContactHover>

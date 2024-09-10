@@ -13,29 +13,24 @@ const works:WorkData[] = [
     {
         title:"Carlos el Robot",
         description:[
-            "My final year project. An educative program ispired by Richard E. Pattis's \"Karel the Robot\", currently being used at the National University of Itapua to teach programming.",
+            " An educative program ispired by Richard E. Pattis's \"Karel the Robot\", currently being used at the National University of Itapua to teach programming.",
             "To implement it, I had to develop a graphics system from scratch using pure Java."
         ],
-        imageSrc:"/works/portfolio.png",
+        imageSrc:"/works/carlos-el-robot.png",
         tags:["Java"]
     },
     {
         title:"LoremIpsum",
-        description:"My portfolio page, that happens to be this very page.",
+        description:"Lorem Ipsum dolor sit amed",
         imageSrc:"/works/temp-work.png",
         tags:["Next.js", "React.js"]
     },
     {
         title:"LoremIpsum1",
-        description:"My portfolio page, that happens to be this very page.",
+        description:"Lorem Ipsum dolor sit amed",
         imageSrc:"/works/temp-work.png",
         tags:["Next.js", "React.js"]
-    },{
-        title:"LoremIpsum2",
-        description:"My portfolio page, that happens to be this very page.",
-        imageSrc:"/works/temp-work.png",
-        tags:["Next.js", "React.js"]
-    }
+    },
 ];
 
 export default function Works(){
