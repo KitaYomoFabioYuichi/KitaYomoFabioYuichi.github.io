@@ -11,49 +11,48 @@ const sectionIds = ["home", "about", "skills", "works", "contact"];
 export default function Header(){
     const [currentSectionId, setCurrentSectionId] = useState(sectionIds[0]);
 
-    const handleScroll = useCallback(()=>{
-        const getCurrentSectionId = ()=>{
-            const PADDING = 75;
-
-            const getSectionPosition = (section:HTMLElement)=>{
-                var rect = section.getBoundingClientRect();
-                return { x: rect.left + scrollLeft, y: rect.top + scrollTop};
+    useEffect(()=>{
+        const handleScroll = ()=>{
+            const getCurrentSectionId = ()=>{
+                const PADDING = 75;
+    
+                const getSectionPosition = (section:HTMLElement)=>{
+                    var rect = section.getBoundingClientRect();
+                    return { x: rect.left + scrollLeft, y: rect.top + scrollTop};
+                }
+        
+                const isOnBottom = ()=>{
+                    const documentHeight = Math.round(document.documentElement.getBoundingClientRect().height);
+                    const currentScrollBottom = Math.round(documentElement.scrollTop + window.innerHeight);
+                    return currentScrollBottom >= documentHeight-PADDING;
+                }
+        
+                const documentElement = document.documentElement;
+                const scrollLeft = documentElement.scrollLeft;
+                const scrollTop = documentElement.scrollTop;
+        
+                let currentSectionId = sectionIds[sectionIds.length-1];
+        
+                if(isOnBottom()){
+                    return "contact";
+                }
+        
+                let sections = sectionIds.map(sectionId=>document?.getElementById(sectionId));
+                for(let section of sections){
+                    section = section as HTMLElement;
+        
+                    let sectionPosition = getSectionPosition(section);
+                    let currentScroll = Math.round(scrollTop);
+                    let sectionY = Math.round(sectionPosition.y-PADDING);
+                    
+                    if(currentScroll >= sectionY) currentSectionId = section.id;
+                }
+        
+                return currentSectionId;
             }
-    
-            const isOnBottom = ()=>{
-                const documentHeight = Math.round(document.documentElement.getBoundingClientRect().height);
-                const currentScrollBottom = Math.round(documentElement.scrollTop + window.innerHeight);
-                return currentScrollBottom >= documentHeight-PADDING;
-            }
-    
-            const documentElement = document.documentElement;
-            const scrollLeft = documentElement.scrollLeft;
-            const scrollTop = documentElement.scrollTop;
-    
-            let currentSectionId = sectionIds[sectionIds.length-1];
-    
-            if(isOnBottom()){
-                return "contact";
-            }
-    
-            let sections = sectionIds.map(sectionId=>document?.getElementById(sectionId));
-            for(let section of sections){
-                section = section as HTMLElement;
-    
-                let sectionPosition = getSectionPosition(section);
-                let currentScroll = Math.round(scrollTop);
-                let sectionY = Math.round(sectionPosition.y-PADDING);
-                
-                if(currentScroll >= sectionY) currentSectionId = section.id;
-            }
-    
-            return currentSectionId;
+            setCurrentSectionId(getCurrentSectionId());
         }
 
-        setCurrentSectionId(getCurrentSectionId());
-    },[]);
-
-    useEffect(()=>{
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return ()=>window.removeEventListener("scroll", handleScroll);
