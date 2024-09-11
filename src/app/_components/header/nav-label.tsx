@@ -27,7 +27,7 @@ export default function NavLavel({
 				
 				//Underline
 				"after:absolute after:bottom-0 after:left-0 after:right-0",
-				"after:h-[1px] after:bg-gray-300",
+				"after:h-[1px] after:bg-gray-200",
 				"after:transition-transform",
 				selected?"after:scale-x-100":"after:scale-x-0"
 			)}

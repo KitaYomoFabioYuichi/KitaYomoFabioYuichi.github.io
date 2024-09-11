@@ -6,7 +6,7 @@ import { m, Variants } from "framer-motion"
 
 const getItemVariant = ({x, y, r, d}:{x:number, y:number, r:number, d:number})=>{
 	return {
-		initial:{ x:0, y:0, rotate:0 },
+		initial:{ x:0, y:0, rotate:0,originX:"1000px", originY:"1000px" },
 		loop:{y: [y, y-50, y], x: [x, x, x], rotate: [r, r, r], 
 			transition:{
 				repeat:Infinity,

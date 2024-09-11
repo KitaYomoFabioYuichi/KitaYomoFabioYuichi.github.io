@@ -1,32 +1,5 @@
 import SectionSubTitle from "@/components/section_subtitle";
 import SectionTitle from "@/components/section_title";
-
-//Icons
-import CIcon from "./skills_icon/languages/C.png"
-import CppIcon from "./skills_icon/languages/Cpp.png"
-import CSIcon from "./skills_icon/languages/CS.png"
-import JavaIcon from "./skills_icon/languages/Java.png"
-import PythonIcon from "./skills_icon/languages/Python.png"
-import JsIcon from "./skills_icon/languages/Js.png"
-import TsIcon from "./skills_icon/languages/Ts.png"
-import htmlIcon from "./skills_icon/languages/html.png"
-import cssIcon from "./skills_icon/languages/css.png"
-
-import ExpressjsIcon from "./skills_icon/libraries/Expressjs.png"
-import NextjsIcon from "./skills_icon/libraries/Nextjs.png"
-import NetIcon from "./skills_icon/libraries/Net.png"
-import SpringBootIcon from "./skills_icon/libraries/SpringBoot.png"
-import ReactIcon from "./skills_icon/libraries/React.png"
-import ReactNativeIcon from "./skills_icon/libraries/ReactNative.png"
-
-import FigmaIcon from "./skills_icon/other/Figma.png"
-import GitIcon from "./skills_icon/other/Git.png"
-import GithubIcon from "./skills_icon/other/Github.png"
-import GodotIcon from "./skills_icon/other/Godot.png"
-import MySqlIcon from "./skills_icon/other/MySql.png"
-import PostgreSqlIcon from "./skills_icon/other/PostgreSql.png"
-import UnityIcon from "./skills_icon/other/Unity.png"
-
 import SkillEntry from "./skill-entry";
 
 const languageList = [
@@ -35,8 +8,8 @@ const languageList = [
     { name:"C#", src:"/skills_icon/languages/CS.png" },
     { name:"Java", src:"/skills_icon/languages/Java.png" },
     { name:"Python", src:"/skills_icon/languages/Python.png" },
-    { name:"Java Script", src:"/skills_icon/languages/Js.png" },
-    { name:"Type Script", src:"/skills_icon/languages/Ts.png" },
+    { name:"JavaScript", src:"/skills_icon/languages/Js.png" },
+    { name:"TypeScript", src:"/skills_icon/languages/Ts.png" },
     { name:"HTML", src:"/skills_icon/languages/html.png" },
     { name:"CSS", src:"/skills_icon/languages/css.png" }
 ];
@@ -51,11 +24,11 @@ const libraryList = [
 ];
 
 const otherList = [
-    { name:"Figma", src:"/skills_icon/other/Figma.png" },
     { name:"Git", src:"/skills_icon/other/Git.png" },
     { name:"Github", src:"/skills_icon/other/Github.png" },
     { name:"MySql", src:"/skills_icon/other/MySql.png" },
     { name:"PostgreSQL", src:"/skills_icon/other/PostgreSql.png" },
+    { name:"Figma", src:"/skills_icon/other/Figma.png" },
     { name:"Godot", src:"/skills_icon/other/Godot.png" },
     { name:"Unity", src:"/skills_icon/other/Unity.png" },
 ];
@@ -95,8 +68,8 @@ function SkillSection({
     skillData
 }:SkillSectionProps){
     function renderSkillEntries(){
-        return skillData.map(v=>{
-            return <SkillEntry key={v.name} name={v.name} src={v.src} />
+        return skillData.map((v, i)=>{
+            return <SkillEntry key={v.name} name={v.name} src={v.src} index={i} />
         })
     }
 

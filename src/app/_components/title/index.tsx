@@ -1,9 +1,8 @@
-import Image from 'next/image'
-
 import EnterDiv from '@/components/animation/enter-div'
 import Button from '@/components/button'
 
 import Link from 'next/link';
+import TitleImage from './title-image';
 
 const START = 0;
 const IMAGE_TIMING = 0;
@@ -42,21 +41,14 @@ function TitleText() {
 function ButtonPanel(){
     return <EnterDiv  delay={BUTTON_TIMING} className="flex gap-2 md:gap-4 justify-center lg:justify-start">
         <EnterDiv delay={BUTTON_TIMING}>
-            <Button>Download CV</Button>
+            <Link href={"/cv.pdf"} target='_blank'>
+                <Button>Download CV</Button>
+            </Link>
         </EnterDiv>
         <EnterDiv delay={BUTTON_TIMING+0.25}>
             <Link href={"#about"}>
                 <Button styleType="Secondary">Read About Me</Button>
             </Link>
         </EnterDiv>
-    </EnterDiv>
-}
-
-import titleImage from "./title-image.png"
-import TitleImage from './title-image';
-
-function TitleImageObs(){
-    return <EnterDiv  delay={IMAGE_TIMING} from={{x:100, y:0}} className="hidden lg:block">
-        <Image alt="Image" src={titleImage} width={320}/>
     </EnterDiv>
 }

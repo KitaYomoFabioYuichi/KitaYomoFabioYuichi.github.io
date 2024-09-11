@@ -32,7 +32,7 @@ function AboutContent({
             My coding career started when I was just 13 years old, when I took interest in game development with the free version GameMaker Engine. Since then, I learned a plethora of programming languages (such as Java, C#, Java Script, Python), frameworks (such as Next.js,  Express.js, Spring Boot, ASP.NET), among other things.
         </p>
         <p>
-            Although I primarily consider myself a Web Developer, I also developed computer programs, mobile aplications, video games, etc. My passion for technology and coding knows no bounds.
+            Although I primarily consider myself a Web Developer, I&apos;ve also developed computer programs, mobile aplications, video games, etc. My passion for technology and coding knows no bounds.
         </p>
     </EnterDiv>
 }

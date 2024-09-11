@@ -3,7 +3,6 @@ import SectionTitle from "@/components/section_title";
 import { cn } from "@/utility";
 import GithubIcon from "./icons/github-icon";
 import LinkedinIcon from "./icons/linkeding-icon";
-import WhatsappIcon from "./icons/whatsapp-icon";
 import ContactHover from "./contact-hover";
 import EmailContact from "./email-contact";
 
@@ -24,13 +23,14 @@ export default function Contact(){
                 <h2 className="text-gray-300 text-base">Socials: </h2>
                 <div className="flex gap-8">
                     <ContactHover>
-                        <GithubIcon/>
+                        <a href={"https://github.com/KitaYomoFabioYuichi"} target="_blank"> 
+                            <GithubIcon/> 
+                        </a>
                     </ContactHover>
                     <ContactHover>
-                        <LinkedinIcon/>
-                    </ContactHover>
-                    <ContactHover>
-                        <WhatsappIcon/>
+                        <a href={"https://www.linkedin.com/in/kitayomofabioyuichi/"} target="_blank">
+                            <LinkedinIcon/>
+                        </a>
                     </ContactHover>
                 </div>
             </EnterDiv>

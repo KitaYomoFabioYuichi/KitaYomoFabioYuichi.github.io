@@ -30,12 +30,8 @@ export default function EmailContact(){
         </ContactHover>
         <m.div
             initial={{opacity:0}}
-            animate={{
-                opacity:showPopup?0.75:0,
-            }}
-            transition={{
-                duration:showPopup?0.1:0.5
-            }}
+            animate={{ opacity:showPopup?0.75:0, }}
+            transition={{ duration:showPopup?0.1:0.5 }}
             className={cn(
                 "select-none",
                 "bg-gray-200  opacity-75",
