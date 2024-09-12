@@ -3,6 +3,7 @@ import SectionTitle from "@/components/section_title";
 import { cn } from "@/utility";
 import Image from "next/image";
 import { HTMLAttributes } from "react";
+import portrait from "./portrait.png"
 
 export default function About(){
     return <section id="about" className="flex flex-col gap-8 md:gap-0 pt-40 lg:pt-32">
@@ -36,9 +37,6 @@ function AboutContent({
         </p>
     </EnterDiv>
 }
-
-import portrait from "./portrait.png"
-import ScrollHeaderPadding from "../scroll-header-padding";
 
 function AboutImage({
     className
