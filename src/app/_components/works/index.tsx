@@ -9,7 +9,7 @@ const works:WorkData[] = [
         description:"My portfolio page, which is this very page. Mainly created to practice developing a Next.js website.",
         imageSrc:"/works/portfolio.png",
         tags:["Next.js", "React"],
-        githubLink:"https://github.com/KitaYomoFabioYuichi/MyPortfolio",
+        githubLink:"https://github.com/KitaYomoFabioYuichi/KitaYomoFabioYuichi.github.io",
         demoLink:"#"
     },
     {
