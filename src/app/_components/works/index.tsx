@@ -21,12 +21,19 @@ const works:WorkData[] = [
         tags:["Java"],
         githubLink:"https://github.com/FabioKita/RobotCarlos2"
     },
-    {
+    /*{
         title:"To-Do App",
         description:"A simple To-Do applicaton made with React Native. It allows users to manage tasks, reminders and activities.",
         imageSrc:"/works/todo-app.png",
         tags:["React Native"],
         githubLink:"https://github.com/KitaYomoFabioYuichi/ToDoApp"
+    },*/
+    {
+        title:"Note Taking App",
+        description:"A simple note taking App made with React Native. It allows users to take and save notes locally.",
+        imageSrc:"/works/note-taking-app.jpg",
+        tags:["React Native"],
+        githubLink:"https://github.com/KitaYomoFabioYuichi/NoteTakingApp"
     },
     {
         title:"MiniJava Compiler",
